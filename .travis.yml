@@ -1,5 +1,17 @@
 language: node_js
 node_js:
-  - "lts/*"
-  - "node"
+- lts/*
+- node
+install:
+- npm ci
+cache:
+  directories:
+  - "$/.npm"
 script: npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: GgNarhXQpSgZv76yEDAgCQUnmoDIJAnSNWj2TNaswqV0QRGi/5zW1KHN2k0iNRjHLezAxEbfnHJkw3qMqEEows7iDkQEhtLwQ8jejfDV0gIdzvy7joyk+Du5xc8YyCeZkS6jrK0RUJcTt2AMlrhEqUPgwfKB+iiYX9CSKS+TNMh7rBVhur0Z98808RxmeIo7SGqllcq2WPAWmNSjZc8Dilg4GHy+wQZXCOlJs1P0DcHMm8mOLJBiPoQw86C1g269g7VTRaSA8RDg3wH79vXW6Puj3xgqzWu5E5A3GOwB2NStHYzx+lStZJifFJqvDVt+NndsJVrnAJexpYRgweuOGeMeps5f2TpfAQnyU/60h2954sfE+O4D5/x2D1VXNKfBYbQvzQBqHUA6RP1wgF3xOO3ddmaCgGyUuak++zYh6nv6jtcr+N9r6AICTlfUGOwY1At1II3QnJS2C2ROG0MK6TdUrdRuUx5xil6s+96mkknOYkgMKggZnECVuL1Oa45DFUgA3x/L/Hk/iG1Fivu2W4t7dqc6IKOJGw/abD7NbklDUPY73k0/Ys9WcTg2qPyydoEkra5vZW8katv0I/46kT+lRAUAXfsPZs8XB6ZF3xdK2N4in0mWYBewFvb53cB6txSIdNzFvO1dU8C6J6LsiqdNTlRrzRsISz8Lq0UM47U=
+  app: this-quantified-self
+  on:
+    repo: Myrdden/quantified-frontend
