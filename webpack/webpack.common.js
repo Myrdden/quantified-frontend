@@ -5,7 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devServer: {
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0',
+    compress: true,
+    inline: true,
+    disableHostCheck: true
   },
   entry: {
     app: Path.resolve(__dirname, '../src/scripts/index.js')
