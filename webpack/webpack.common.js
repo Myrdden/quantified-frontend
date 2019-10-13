@@ -4,6 +4,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devServer: {
+    port: process.env.PORT || 3000
+  },
   entry: {
     app: Path.resolve(__dirname, '../src/scripts/index.js')
   },
