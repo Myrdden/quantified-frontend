@@ -2,15 +2,12 @@ import '../styles/index.scss';
 
 console.log('webpack starterkit');
 
-function toggleFoods(id) {
-  console.log(id);
+function toggleHide(id) {
   let elem = document.getElementById(id);
-  if (elem) {
-    if (elem.className.includes('hidden')) {
-      elem.className = elem.className.replace(' hidden', '');
-    } else {
-      elem.classname += ' hidden';
-    }
+  if (elem.className.includes('hidden')) {
+    elem.className = elem.className.replace(' hidden', '');
+  } else {
+    elem.className += ' hidden';
   }
 }
 
@@ -30,7 +27,7 @@ let table = document.getElementById('food-table');
 })();
 
 (async () => {
-  let parent = document.getElementById('meal-div');
+  let parent = document.getElementById('meals-div');
   let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals');
   let result = await response.json();
   result.forEach(async meal => {
@@ -53,7 +50,7 @@ let table = document.getElementById('food-table');
     newDiv.appendChild(foodsTable);
 
     newDiv.id = 'meal-' + meal.id;
-    newDiv.addEventListener('click', toggleFoods('meal-' + meal.id + '-foods'));
+    newDiv.addEventListener('click', () => toggleHide('meal-' + meal.id + '-foods'));
     parent.appendChild(newDiv);
   });
 })();

@@ -7,6 +7,20 @@ body {
   background: grey;
 }
 
+.hidden {display: none}
+
+.title {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.centered {display: flex; height: 100%; align-items: center; justify-content: center}
+
+.most-food {
+  margin: 0;
+  font-size: 2rem;
+}
+
 #outer-div {
   background: white;
   padding: 2rem;
@@ -20,7 +34,6 @@ body {
 
 #title-div {
   background: slateblue;
-  padding: 2rem;
   position: fixed;
   top: 4rem;
   left: 4rem;
@@ -73,6 +86,19 @@ body {
 
 .shadow {
   box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);
+}
+
+#food-table {
+  font-size: 2rem;
+  width: 100%;
+}
+
+.meal-div {
+  color: black;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .foods-table-name {
