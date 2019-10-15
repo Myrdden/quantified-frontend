@@ -1,6 +1,110 @@
-$body-color: slateblue;
-
 body {
-  color: $body-color;
+  color: white;
   font-family: sans-serif;
+  position: fixed;
+  top: 0; left: 0;
+  margin: 0;
+  background: grey;
+}
+
+.hidden {display: none}
+
+.title {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.centered {display: flex; height: 100%; align-items: center; justify-content: center}
+
+.most-food {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#outer-div {
+  background: white;
+  padding: 2rem;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  border-radius: 4rem
+}
+
+#title-div {
+  background: slateblue;
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  bottom: 80%;
+  margin-bottom: 1rem;
+  right: 50%;
+  margin-right: 1rem;
+  border-radius: 2rem;
+}
+
+#most-food-div {
+  background: slateblue;
+  padding: 2rem;
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  margin-left: 1rem;
+  bottom: 80%;
+  margin-bottom: 1rem;
+  right: 4rem;
+  border-radius: 2rem;
+}
+
+#foods-div {
+  background: slateblue;
+  padding: 2rem;
+  position: fixed;
+  top: 20%;
+  margin-top: 1rem;
+  left: 50%;
+  margin-left: 1rem;
+  bottom: 4rem;
+  right: 4rem;
+  border-radius: 2rem;
+}
+
+#meals-div {
+  background: slateblue;
+  padding: 2rem;
+  position: fixed;
+  top: 20%;
+  margin-top: 1rem;
+  left: 4rem;
+  bottom: 4rem;
+  right: 50%;
+  margin-right: 1rem;
+  border-radius: 2rem;
+}
+
+
+.shadow {
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);
+}
+
+#food-table {
+  font-size: 2rem;
+  width: 100%;
+}
+
+.meal-div {
+  color: black;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.foods-table-name {
+  margin-top: 0.2rem; margin-bottom: 0.2rem;
+}
+
+.foods-table-calories {
+
 }
