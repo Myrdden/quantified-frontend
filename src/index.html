@@ -9,14 +9,23 @@
   <div id='outer-div' class='shadow'>
     <div id='title-div'><h1 class='centered title'>Look at these Foods</h1></div>
     <div id='meals-div'>
-      <button id='add-meal'>+</button>
+      <div id='add-meal-div'>
+        <form id='add-meal-form'>
+          Name:<br>
+          <input type='text' name='Name'><br>
+          Calories:<br>
+          <input type='text' name='Calories'><br>
+          <input type='submit' value='Submit'><br>
+        </form>
+      </div>
       <table id='meal-table'></table>
     </div>
-    <div id='most-food-div'><p class='centered most-food'>Most Foodest Food: ---</p></div>
+    <button id='add-meal'>+</button>
+    <div id='most-food-div'><p id='most-food' class='centered most-food'>Most Popular Food:</p></div>
     <div id='foods-div'>
-      <button id='add-food'>+</button>
       <table id='food-table'></table>
     </div>
+    <button id='add-food' class='add-btn'>+</button>
   </div>
 </body>
 </html>

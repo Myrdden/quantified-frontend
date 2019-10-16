@@ -11,10 +11,44 @@ function toggleHide(id) {
   }
 }
 
+function generateFoodEditForm() {
+  let form = document.createElement('form');
+  let nameInput = document.createElement('input');
+  nameInput.name = 'Name';
+  nameInput.type = 'text';
+  let calorieInput = document.createElement('input');
+  calorieInput.name = 'Calories';
+  calorieInput.type = 'text';
+  let submitButton = document.createElement('input');
+  submitButton.type = 'submit';
+  submitButton.value = 'Edit';
+  form.innerHTML = 'Name:<br>';
+  form.appendChild(nameInput);
+  form.innerHTML += '<br>Calories:<br>';
+  form.appendChild(calorieInput);
+  form.innerHTML += '<br>';
+  form.appendChild(submitButton);
+
+  let editDiv = document.createElement('div');
+  editDiv.appendChild(form);
+  return editDiv;
+}
+
+function editFood(id, form) {
+  let formData = new FormData(form);
+  let body = {'name': formData.get('Name'), 'calories': formData.get('Calories')};
+  fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods/' + id, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  });
+}
+
 let table = document.getElementById('food-table');
 (async () => {
   let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods');
   let result = await response.json();
+
   result.forEach(food => {
     let row = table.insertRow(0);
     let name = row.insertCell(0);
@@ -23,6 +57,12 @@ let table = document.getElementById('food-table');
     name.className += 'foods-table-name';
     calories.innerHTML = food.calories;
     calories.className += 'foods-table-calories';
+    let form = generateFoodEditForm();
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      editFood(food.id, event.target);
+    });
+    name.appendChild(form);
   });
 })();
 
@@ -53,4 +93,30 @@ let table = document.getElementById('food-table');
     newDiv.addEventListener('click', () => toggleHide('meal-' + meal.id + '-foods'));
     parent.appendChild(newDiv);
   });
+})();
+
+(async () => {
+  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals/most_popular_food');
+  let result = await response.json();
+  // console.log(result);
+  let text = document.getElementById('most-food');
+  text.innerHTML += ' ' + result.name + ' (' + result.calories + ')'
+})();
+
+(async () => {
+  let form = document.getElementById('add-meal-form');
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    let formData = new FormData(event.target);
+    let body = {'name': formData.get('Name'), 'calories': formData.get('Calories')};
+    console.log(body);
+    let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+    });
+    let result = await response.json();
+    console.log(result);
+  }, false);
 })();
