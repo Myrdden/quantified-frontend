@@ -1,32 +1,39 @@
-# Webpack Frontend Starterkit
+## Quantified Self
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+### Introduction
 
-A lightweight foundation for your next webpack based frontend project.
+This is the frontend for Quantified Self, an app that allows users to create foods and meals, and keep track of calories. The frontend was built using a Webpack Starter Kit and JavaScript. The backend of this app was built separately in an Express Framework using Node.js and the repo can be found [here](https://github.com/Myrdden/quantified-backend).
 
 
-### Installation
+### Project Board
 
-```
-npm install
-```
+[Click Here to see the Quantified Self Frontend Project Board](https://github.com/Myrdden/quantified-frontend/projects/2)
 
-### Start Dev Server
+### Core Contributors
 
-```
-npm start
-```
+- [Aurie Gochenour](https://github.com/Myrdden)
+- [Jori Peterson](https://github.com/JoriPeterson)
 
-### Build Prod Version
 
-```
-npm run build
-```
+### Built Using
 
-### Features:
+* Webpack Starter Kit
+* JavaScript
 
-* ES6 Support via [babel](https://babeljs.io/) (v7)
-* SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
-* Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
+### Initial Setup
 
-When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
+* `$ git clone git@github.com:Myrdden/quantified-frontend.git`
+* `$ npm install`
+
+
+### How to Use
+
+As a user, you can get all foods or meals or request a single food or meal and its foods by ID. You can also create, update or delete foods, as well as add or remove certain foods to/from meals. An additional endpoint has been added to find the most popular food across all meals.
+
+
+[Click Here to use Quantified Self](http://this-quantified-self.herokuapps.com/)
+
+
+### How to Contribute
+
+If you'd like to contribute, fork and clone this repo, make your changes and submit a pull request. Tag one of us in it `@Myrdden` or `@joripeterson` so we take a look at your code!
