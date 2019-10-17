@@ -6,6 +6,7 @@ onReady(() => {
   prepareForms();
   populateFoods();
   populateMeals();
+  populateMostPopular();
 });
 
 function prepareAnims() {
@@ -273,4 +274,11 @@ async function addFoodItem(mealId, form) {
   await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
     method: 'POST'
   });
+}
+
+async function populateMostPopular() {
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals/most_popular_food');
+  let result = await response.json();
+  let card = document.getElementById('most-popular');
+  card.innerHTML += result.name + ' (' + result.calories + ')';
 }
