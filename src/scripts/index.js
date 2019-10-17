@@ -43,7 +43,7 @@ function prepareForms() {
 }
 
 async function populateFoods() {
-  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods');
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/foods');
   let result = await response.json();
   let leftColumn = document.getElementById('foods-left-column');
   leftColumn.innerHTML = '';
@@ -154,7 +154,7 @@ async function updateFood(id, form) {
   let oldTitle = card.querySelector('.title').innerHTML;
   let oldCalories = parseInt(card.querySelector('.content').innerHTML, 10);
   let body = {'name': formData.get('name') || oldTitle, 'calories': formData.get('calories') || oldCalories};
-  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods/' + id, {
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/foods/' + id, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(body)
@@ -165,13 +165,13 @@ async function updateFood(id, form) {
 }
 
 async function deleteFood(id) {
-  await fetch('http://this-quantified-backed.herokuapp.com/api/v1/foods/' + id, {
+  await fetch('https://this-quantified-backed.herokuapp.com/api/v1/foods/' + id, {
     method: 'DELETE'
   });
 }
 
 async function populateMeals() {
-  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals');
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals');
   let result = await response.json();
   let leftColumn = document.getElementById('meals-left-column');
   leftColumn.innerHTML = '';
@@ -262,7 +262,7 @@ function getAllFoods() {
 }
 
 async function deleteFoodItem(mealId, foodId) {
-  await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
+  await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
     method: 'DELETE'
   });
 }
@@ -270,7 +270,7 @@ async function deleteFoodItem(mealId, foodId) {
 async function addFoodItem(mealId, form) {
   let formData = new FormData(form);
   let foodId = formData.get('name');
-  await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
+  await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals/' + mealId + '/foods/' + foodId, {
     method: 'POST'
   });
 }
