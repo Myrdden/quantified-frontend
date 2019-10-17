@@ -37,7 +37,7 @@ function generateFoodEditForm() {
 function editFood(id, form) {
   let formData = new FormData(form);
   let body = {'name': formData.get('Name'), 'calories': formData.get('Calories')};
-  fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods/' + id, {
+  fetch('https://this-quantified-backend.herokuapp.com/api/v1/foods/' + id, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(body)
@@ -46,7 +46,7 @@ function editFood(id, form) {
 
 let table = document.getElementById('food-table');
 (async () => {
-  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods');
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/foods');
   let result = await response.json();
 
   result.forEach(food => {
@@ -68,7 +68,7 @@ let table = document.getElementById('food-table');
 
 (async () => {
   let parent = document.getElementById('meals-div');
-  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals');
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals');
   let result = await response.json();
   result.forEach(async meal => {
     let newDiv = document.createElement('div');
@@ -96,7 +96,7 @@ let table = document.getElementById('food-table');
 })();
 
 (async () => {
-  let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/meals/most_popular_food');
+  let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/meals/most_popular_food');
   let result = await response.json();
   // console.log(result);
   let text = document.getElementById('most-food');
@@ -111,7 +111,7 @@ let table = document.getElementById('food-table');
     let formData = new FormData(event.target);
     let body = {'name': formData.get('Name'), 'calories': formData.get('Calories')};
     console.log(body);
-    let response = await fetch('http://this-quantified-backend.herokuapp.com/api/v1/foods', {
+    let response = await fetch('https://this-quantified-backend.herokuapp.com/api/v1/foods', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body)
