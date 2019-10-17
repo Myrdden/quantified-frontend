@@ -25,6 +25,8 @@ This is the frontend for Quantified Self, an app that allows users to create foo
 * `$ git clone git@github.com:Myrdden/quantified-frontend.git`
 * `$ npm install`
 
+Start server with: `$ npm start`
+
 
 ### How to Use
 
